@@ -32,7 +32,7 @@ Marie Gourmet es un sistema web que permite a clientes corporativos cotizar even
 ## Tecnologías
 
 - **Frontend:** HTML, CSS, JavaScript
-- **Backend:** Node.js + API REST
+- **Backend:** Springboot + API REST
 - **Base de datos:** MySQL
 - **Infraestructura:** AWS
 - **Gestión ágil:** Trello
@@ -44,7 +44,7 @@ marie-gourmet/
 
 ├── frontend/          # Vistas del sistema
 
-├── backend/           # API REST Node.js
+├── backend/           # API REST Springboot
 
 ├── docs/
 
