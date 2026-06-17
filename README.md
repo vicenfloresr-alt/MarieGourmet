@@ -6,9 +6,9 @@ Plataforma web orientada a la cotización, planificación y operación de evento
 
 | Nombre | Rol | Responsabilidad |
 |--------|-----|-----------------|
-| Vicente Flores | Dev Team | Diagramas UML & MER |
+| Vicente Flores | Product Owner | Diagramas UML & MER |
 | Benjamin Cordova | Dev Team | Desarrollo Backend & Frontend |
-| Camilo Bernales | Dev Team | Informes & QA |
+| Camilo Bernales | Scrum Master | Informes & QA |
 
 **Sección:** 001D — **Grupo:** 7 — **Docente:** Christian Lazcano
 
