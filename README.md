@@ -86,4 +86,4 @@ marie-gourmet/
 | Planilla set de pruebas | Completado |
 | Desarrollo backend | Completado |
 | Desarrollo frontend | Completado |
-| Conexión frontend-backend | En progreso |
+| Conexión frontend-backend | Completado |
