@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marie Gourmet | Cotización de Eventos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-mark">M</div>
+      <div>
+        <h1>Marie Gourmet</h1>
+        <p>Catering & Eventos</p>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#cotizador">Cotizar</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#admin">Administración</a>
+    </nav>
+
+    <button class="outline-btn" onclick="scrollToSection('cotizador')">Cotiza aquí</button>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="hero-text">
+        <span class="eyebrow">Banquetería gourmet en Santiago</span>
+        <h2>Sistema de cotización y gestión de eventos corporativos</h2>
+        <p>
+          Plataforma web para apoyar la cotización personalizada, selección de menús,
+          gestión de eventos y administración del catálogo de Marie Gourmet.
+        </p>
+        <div class="hero-actions">
+          <button class="primary-btn" onclick="scrollToSection('cotizador')">Crear cotización</button>
+          <button class="secondary-btn" onclick="scrollToSection('catalogo')">Ver catálogo</button>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Resumen operativo</h3>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span>Eventos</span>
+            <strong id="totalEventos">0</strong>
+          </div>
+          <div class="stat-card">
+            <span>Confirmados</span>
+            <strong id="eventosConfirmados">0</strong>
+          </div>
+          <div class="stat-card">
+            <span>Productos</span>
+            <strong id="totalProductos">0</strong>
+          </div>
+          <div class="stat-card">
+            <span>Asistentes</span>
+            <strong id="totalAsistentes">0</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cotizador" class="section">
+      <div class="section-title">
+        <span class="eyebrow">Cotizador cliente</span>
+        <h2>Solicitud de cotización de evento</h2>
+        <p>
+          El menú principal se elige como servicio base. Las cantidades solo se piden
+          para opciones especiales o requerimientos fuera del menú estándar.
+        </p>
+      </div>
+
+      <div class="quote-layout">
+        <form class="panel" onsubmit="return false;">
+          <div class="panel-head">
+            <span class="step">1</span>
+            <div>
+              <h3>Datos del evento</h3>
+              <p>Información general para generar la solicitud.</p>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="full">
+              <label>Nombre del evento</label>
+              <input type="text" id="nombreEvento" placeholder="Ej: Almuerzo Corporativo Q3 2025" />
+            </div>
+
+            <div>
+              <label>Fecha del evento</label>
+              <input type="date" id="fechaEvento" />
+            </div>
+
+            <div>
+              <label>N° de asistentes</label>
+              <input type="number" id="asistentesEvento" placeholder="80" min="1" />
+            </div>
+
+            <div>
+              <label>Duración estimada</label>
+              <select id="duracionEvento">
+                <option value="2 horas">2 horas</option>
+                <option value="3 horas">3 horas</option>
+                <option value="4 horas">4 horas</option>
+                <option value="Jornada completa">Jornada completa</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Lugar del evento</label>
+              <input type="text" id="lugarEvento" placeholder="Ej: Las Condes, Santiago" />
+            </div>
+          </div>
+
+          <div class="panel-head space-top">
+            <span class="step">2</span>
+            <div>
+              <h3>Servicio base</h3>
+              <p>Selecciona el tipo de servicio principal del evento.</p>
+            </div>
+          </div>
+
+          <div class="service-grid">
+            <label class="service-card selected">
+              <input type="radio" name="tipoServicio" value="Coffee break" checked />
+              <strong>Coffee break</strong>
+              <span>Café, tapaditos, dulces y bebidas para reuniones.</span>
+              <small>$11.500 por persona</small>
+            </label>
+
+            <label class="service-card">
+              <input type="radio" name="tipoServicio" value="Brunch" />
+              <strong>Brunch</strong>
+              <span>Tapaditos, frutas, dulces, jugos y café.</span>
+              <small>$14.500 por persona</small>
+            </label>
+
+            <label class="service-card">
+              <input type="radio" name="tipoServicio" value="Cóctel" />
+              <strong>Cóctel</strong>
+              <span>Canapés, crostinis, bocados calientes y postres.</span>
+              <small>$17.500 por persona</small>
+            </label>
+
+            <label class="service-card">
+              <input type="radio" name="tipoServicio" value="Almuerzo corporativo" />
+              <strong>Almuerzo corporativo</strong>
+              <span>Plato principal, acompañamiento, postre y bebida.</span>
+              <small>$19.500 por persona</small>
+            </label>
+          </div>
+
+          <div class="panel-head space-top">
+            <span class="step">3</span>
+            <div>
+              <h3>Opciones especiales</h3>
+              <p>Solo se ingresan cantidades para necesidades fuera del menú estándar.</p>
+            </div>
+          </div>
+
+          <div class="special-grid">
+            <div class="special-card">
+              <div>
+                <strong>Menús vegetarianos</strong>
+                <p>Personas que requieren opción sin carne.</p>
+              </div>
+              <input type="number" id="vegetarianos" min="0" value="0" />
+            </div>
+
+            <div class="special-card">
+              <div>
+                <strong>Menús veganos</strong>
+                <p>Personas que requieren opción 100% vegetal.</p>
+              </div>
+              <input type="number" id="veganos" min="0" value="0" />
+            </div>
+
+            <div class="special-card">
+              <div>
+                <strong>Sin gluten</strong>
+                <p>Porciones adaptadas para restricción alimentaria.</p>
+              </div>
+              <input type="number" id="sinGluten" min="0" value="0" />
+            </div>
+
+            <div class="special-card">
+              <div>
+                <strong>Sin frutos secos</strong>
+                <p>Porciones especiales por alergias.</p>
+              </div>
+              <input type="number" id="sinFrutosSecos" min="0" value="0" />
+            </div>
+
+            <div class="special-card">
+              <div>
+                <strong>Opciones keto</strong>
+                <p>Requerimiento alimentario especial.</p>
+              </div>
+              <input type="number" id="keto" min="0" value="0" />
+            </div>
+
+            <div class="special-card">
+              <div>
+                <strong>Menú niños</strong>
+                <p>Opciones simples para asistentes menores.</p>
+              </div>
+              <input type="number" id="ninos" min="0" value="0" />
+            </div>
+
+            <div class="special-card">
+              <div>
+                <strong>Pisco sour artesanal</strong>
+                <p>Botellas de 1 litro para cóctel.</p>
+              </div>
+              <input type="number" id="botellasPisco" min="0" value="0" />
+            </div>
+
+            <div class="special-card">
+              <div>
+                <strong>Espumante</strong>
+                <p>Botellas para brindis o recepción.</p>
+              </div>
+              <input type="number" id="botellasEspumante" min="0" value="0" />
+            </div>
+
+            <div class="special-card">
+              <div>
+                <strong>Garzones adicionales</strong>
+                <p>Apoyo extra para servicio en terreno.</p>
+              </div>
+              <input type="number" id="garzonesExtra" min="0" value="0" />
+            </div>
+          </div>
+
+          <label class="check-line">
+            <input type="checkbox" id="montajePremium" />
+            Solicitar montaje premium de mesa buffet
+          </label>
+
+          <label>Observaciones</label>
+          <textarea id="observaciones" placeholder="Ej: evento al aire libre, recepción con alcohol, preferencia por tapaditos y crostinis"></textarea>
+
+          <div class="action-row">
+            <button class="primary-btn" onclick="cotizarEvento()">Calcular cotización</button>
+            <button class="secondary-btn" onclick="registrarEvento()">Registrar solicitud</button>
+          </div>
+        </form>
+
+        <aside class="summary-panel">
+          <div class="panel-head">
+            <span class="step">4</span>
+            <div>
+              <h3>Resumen de cotización</h3>
+              <p>Estimación referencial para revisión del administrador.</p>
+            </div>
+          </div>
+
+          <div id="resultadoCotizacion" class="summary-box">
+            <p class="muted">Completa el formulario y presiona “Calcular cotización”.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="catalogo" class="section soft">
+      <div class="section-title">
+        <span class="eyebrow">Catálogo</span>
+        <h2>Productos disponibles</h2>
+        <p>Productos agrupados por categoría para apoyar la selección del menú.</p>
+      </div>
+
+      <div class="catalog-toolbar">
+        <button class="filter-btn active" onclick="filtrarProductos('Todos', this)">Todos</button>
+        <button class="filter-btn" onclick="filtrarProductos('Bocados fríos', this)">Fríos</button>
+        <button class="filter-btn" onclick="filtrarProductos('Bocados calientes', this)">Calientes</button>
+        <button class="filter-btn" onclick="filtrarProductos('Bocados dulces', this)">Dulces</button>
+        <button class="filter-btn" onclick="filtrarProductos('Brunch / Coffee Break', this)">Brunch / Coffee</button>
+        <button class="filter-btn" onclick="filtrarProductos('Productos vegetarianos', this)">Vegetarianos</button>
+        <button class="filter-btn" onclick="filtrarProductos('Alcohol', this)">Alcohol</button>
+      </div>
+
+      <div id="catalogoProductos" class="product-grid"></div>
+    </section>
+
+    <section id="admin" class="section">
+      <div class="section-title">
+        <span class="eyebrow">Administración</span>
+        <h2>Gestión interna</h2>
+        <p>Vista del administrador para eventos, estados y catálogo.</p>
+      </div>
+
+      <div class="admin-grid">
+        <div class="panel">
+          <div class="panel-head between">
+            <div>
+              <h3>Eventos registrados</h3>
+              <p>Permite cambiar el estado de cada solicitud.</p>
+            </div>
+            <button class="ghost-btn" onclick="cargarEventos()">Recargar</button>
+          </div>
+
+          <div id="tablaEventos" class="table-wrapper"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Agregar producto al catálogo</h3>
+            <p>Formulario simple para evidenciar CRUD de productos.</p>
+          </div>
+
+          <div class="form-grid">
+            <div class="full">
+              <label>Nombre</label>
+              <input type="text" id="nombreProducto" placeholder="Ej: Mini sándwich gourmet" />
+            </div>
+            <div>
+              <label>Categoría</label>
+              <input type="text" id="categoriaProducto" placeholder="Ej: Brunch / Coffee Break" />
+            </div>
+            <div>
+              <label>Precio</label>
+              <input type="number" id="precioProducto" placeholder="24900" />
+            </div>
+            <div class="full">
+              <label>Descripción</label>
+              <input type="text" id="descripcionProducto" placeholder="Descripción corta del producto" />
+            </div>
+          </div>
+
+          <button class="primary-btn full-btn" onclick="crearProducto()">Guardar producto</button>
+        </div>
+      </div>
+
+      <div class="panel space-top">
+        <div class="panel-head between">
+          <div>
+            <h3>Listado completo de productos</h3>
+            <p>Catálogo conectado a la base de datos.</p>
+          </div>
+          <button class="ghost-btn" onclick="cargarProductos()">Recargar</button>
+        </div>
+
+        <div id="tablaProductos" class="table-wrapper"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Marie Gourmet · Sistema académico de cotización y gestión de eventos</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
