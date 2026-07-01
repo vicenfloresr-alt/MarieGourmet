@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marie Gourmet | Minuta y Administración</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <div class="logo">M</div>
+      <div>
+        <h1>Marie Gourmet</h1>
+        <p>Catering & eventos</p>
+      </div>
+    </div>
+    <nav>
+      <a href="#minuta">Minuta</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#admin">Administración</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <span class="tag">Sistema de planificación</span>
+      <h2>Minuta operativa y panel administrativo</h2>
+      <p>Calcula productos específicos, insumos, kilos aproximados, bebidas, personal requerido y gestiona eventos/productos desde administración.</p>
+      <button onclick="irA('minuta')">Crear minuta</button>
+    </div>
+    <div class="hero-card">
+      <h3>Resumen operativo</h3>
+      <div class="stats">
+        <div><span>Eventos</span><strong id="totalEventos">0</strong></div>
+        <div><span>Confirmados</span><strong id="totalConfirmados">0</strong></div>
+        <div><span>Productos</span><strong id="totalProductos">0</strong></div>
+        <div><span>Asistentes</span><strong id="totalAsistentes">0</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="minuta" class="section">
+      <div class="title">
+        <span class="tag">Minuta profesional</span>
+        <h2>Datos del evento y selección de productos</h2>
+        <p>Primero define los menús principales y luego elige productos específicos por categoría.</p>
+      </div>
+
+      <div class="layout">
+        <form class="panel" onsubmit="return false;">
+          <h3>1. Datos generales</h3>
+          <div class="grid">
+            <div class="full">
+              <label>Nombre del evento</label>
+              <input id="nombreEvento" placeholder="Ej: Evento Corporativo Demo">
+            </div>
+            <div>
+              <label>Fecha</label>
+              <input id="fechaEvento" type="date">
+            </div>
+            <div>
+              <label>Total asistentes</label>
+              <input id="asistentes" type="number" value="80">
+            </div>
+            <div>
+              <label>Tipo de evento</label>
+              <select id="tipoEvento">
+                <option>Almuerzo corporativo</option>
+                <option>Coffee break</option>
+                <option>Brunch</option>
+                <option>Cóctel</option>
+              </select>
+            </div>
+            <div>
+              <label>Lugar</label>
+              <input id="lugarEvento" placeholder="Ej: Las Condes">
+            </div>
+          </div>
+
+          <h3>2. Menús principales</h3>
+          <div class="cards five">
+            <div class="card"><b>Menú carne</b><small>200 g carne por persona</small><input id="menuCarne" type="number" value="40"></div>
+            <div class="card"><b>Menú pollo</b><small>180 g pollo por persona</small><input id="menuPollo" type="number" value="20"></div>
+            <div class="card"><b>Vegetariano</b><small>Verduras + acompañamiento</small><input id="menuVegetariano" type="number" value="10"></div>
+            <div class="card"><b>Vegano</b><small>Proteína vegetal</small><input id="menuVegano" type="number" value="0"></div>
+            <div class="card"><b>Menú niños</b><small>3 jugos en caja por niño</small><input id="menuNinos" type="number" value="10"></div>
+          </div>
+
+          <h3>3. Bocados fríos específicos</h3>
+          <div class="cards three">
+            <div class="item"><span>Canapés gourmet</span><input id="canapes" type="number" value="50"></div>
+            <div class="item"><span>Crostinis gourmet</span><input id="crostinis" type="number" value="30"></div>
+            <div class="item"><span>Tapaditos mini</span><input id="tapaditos" type="number" value="24"></div>
+            <div class="item"><span>Rollitos de salmón</span><input id="rollitosSalmon" type="number" value="12"></div>
+            <div class="item"><span>Rollitos de jamón serrano</span><input id="rollitosJamon" type="number" value="12"></div>
+            <div class="item"><span>Brochetas gourmet</span><input id="brochetasGourmet" type="number" value="12"></div>
+          </div>
+
+          <h3>4. Bocados calientes específicos</h3>
+          <div class="cards three">
+            <div class="item"><span>Empanaditas de cóctel</span><input id="empanaditas" type="number" value="40"></div>
+            <div class="item"><span>Pizzetas napolitanas</span><input id="pizzetas" type="number" value="36"></div>
+            <div class="item"><span>Mini quiche</span><input id="miniQuiche" type="number" value="24"></div>
+            <div class="item"><span>Brochetas de pollo</span><input id="brochetasPollo" type="number" value="12"></div>
+          </div>
+
+          <h3>5. Dulces, bebidas y alcohol</h3>
+          <div class="cards three">
+            <div class="item"><span>Shots de postres</span><input id="shotsPostre" type="number" value="80"></div>
+            <div class="item"><span>Mini brownies</span><input id="brownies" type="number" value="40"></div>
+            <div class="item"><span>Mini alfajores</span><input id="alfajores" type="number" value="40"></div>
+            <div class="item"><span>Brochetas de frutas</span><input id="brochetasFruta" type="number" value="24"></div>
+            <div class="item"><span>Jugo natural litros</span><input id="jugoLitros" type="number" value="20"></div>
+            <div class="item"><span>Aguas individuales</span><input id="aguas" type="number" value="80"></div>
+            <div class="item"><span>Pisco sour 1 litro</span><input id="piscoSour" type="number" value="3"></div>
+            <div class="item"><span>Espumante</span><input id="espumante" type="number" value="2"></div>
+          </div>
+
+          <label>Observaciones</label>
+          <textarea id="observaciones" placeholder="Ej: considerar montaje 2 horas antes, separar menús niños y vegetarianos."></textarea>
+
+          <div class="actions">
+            <button onclick="generarMinuta()">Generar minuta</button>
+            <button class="secondary" onclick="registrarEvento()">Registrar evento</button>
+          </div>
+        </form>
+
+        <aside class="panel result">
+          <h3>Resultado de minuta</h3>
+          <div id="resultado"><p class="muted">Completa los datos y presiona “Generar minuta”.</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="catalogo" class="section soft">
+      <div class="title">
+        <span class="tag">Catálogo</span>
+        <h2>Productos disponibles</h2>
+        <p>Catálogo conectado a la base de datos MySQL por medio del backend.</p>
+      </div>
+      <div id="catalogoProductos" class="product-grid"></div>
+    </section>
+
+    <section id="admin" class="section">
+      <div class="title">
+        <span class="tag">Administración</span>
+        <h2>Panel administrativo</h2>
+        <p>Se mantiene la gestión de eventos, cambio de estado y CRUD básico de productos.</p>
+      </div>
+
+      <div class="admin-grid">
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h3>Eventos registrados</h3>
+              <p class="muted">Cambia estados de pendiente a confirmado o cancelado.</p>
+            </div>
+            <button class="small" onclick="cargarEventos()">Recargar</button>
+          </div>
+          <div id="tablaEventos"></div>
+        </div>
+
+        <div class="panel">
+          <h3>Agregar producto</h3>
+          <div class="grid one">
+            <div>
+              <label>Nombre</label>
+              <input id="nombreProducto" placeholder="Ej: Mini sándwich gourmet">
+            </div>
+            <div>
+              <label>Categoría</label>
+              <input id="categoriaProducto" placeholder="Ej: Bocados fríos">
+            </div>
+            <div>
+              <label>Precio</label>
+              <input id="precioProducto" type="number" placeholder="24900">
+            </div>
+            <div>
+              <label>Descripción</label>
+              <input id="descripcionProducto" placeholder="Descripción corta">
+            </div>
+          </div>
+          <button onclick="crearProducto()">Guardar producto</button>
+        </div>
+      </div>
+
+      <div class="panel top">
+        <div class="panel-head">
+          <div>
+            <h3>Listado completo de productos</h3>
+            <p class="muted">Productos activos registrados en la base de datos.</p>
+          </div>
+          <button class="small" onclick="cargarProductos()">Recargar</button>
+        </div>
+        <div id="tablaProductos"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Marie Gourmet · Sistema académico de minuta operativa y administración</footer>
+  <script src="script.js"></script>
+</body>
+</html>
